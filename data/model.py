@@ -33,8 +33,21 @@ class Route:
 
     def update_duration(self, data):
         start_index = [x for x in data.vehicles if x.id == self.vehicle_id][0].start_index
-        job_location_indices = [v.location_index for v in data.jobs if v.id in self.job_ids]
-        self.delivery_duration = route_distance(data.matrix, [start_index] + job_location_indices)
+        location_indices = [start_index]
+        for job_id in self.job_ids:
+            job = [v for v in data.jobs if v.id == job_id][0]
+            location_indices.append(job.location_index)
+        self.delivery_duration = route_distance(data.matrix, location_indices)
+
+    def copy(self):
+        copy = Route(self.vehicle_id)
+        copy.delivery_duration = self.delivery_duration
+        copy.load = self.load
+        job_ids = []
+        for job_id in self.job_ids:
+            job_ids.append(job_id)
+        copy.job_ids = job_ids
+        return copy
 
 
 class Solution:

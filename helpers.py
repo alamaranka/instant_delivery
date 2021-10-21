@@ -19,3 +19,10 @@ def route_distance(matrix, location_indices):
     for i in range(1, len(location_indices)):
         distance += matrix[location_indices[i-1]][location_indices[i]]
     return distance
+
+
+def insert_job_to_route(data, route, index, job):
+    route.load += job.delivery
+    route.job_ids.insert(index, job.id)
+    route.update_duration(data)
+    return route

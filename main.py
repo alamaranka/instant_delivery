@@ -1,25 +1,36 @@
+import time
 from data import read
 from data.model import Solution, Route
 from helpers import *
+from local_search import *
 
+# starting algorithm
+start_time = time.time()
+
+# reading data
 data = read.data
-n_vehicles = len(data.vehicles)
-n_jobs = len(data.jobs)
 
 # initial solution
 solution = Solution()
 solution.populate(data.vehicles)
 for job in data.jobs:
-    nearest_vehicle = get_closest_vehicle(solution.routes, data.vehicles, data.matrix, job)
-    route = [x for x in solution.routes if x.vehicle_id == nearest_vehicle.id][0]
+    closest_vehicle = get_closest_vehicle(solution.routes, data.vehicles, data.matrix, job)
+    route = [x for x in solution.routes if x.vehicle_id == closest_vehicle.id][0]
     route.job_ids.append(job.id)
     route.load += job.delivery
 for route in solution.routes:
     route.update_duration(data)
 solution.update_duration()
+print('Total delivery duration of the initial solution: {0}'
+      .format(solution.total_delivery_duration))
 
+# improve routes with local search
+solution = local_search(data, solution)
+print('Total delivery duration after local search: {0}'
+      .format(solution.total_delivery_duration))
 
-# output
+# export solution
 solution.export('output.json')
 
-pass
+# algorithm completed
+print("Algorithm completed in %.3f seconds." % (time.time() - start_time))
