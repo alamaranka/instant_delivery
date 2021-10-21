@@ -1,15 +1,14 @@
 {
-    "total_delivery_duration": 4815,
+    "total_delivery_duration": 4147,
     "routes": [
         {
             "vehicle_id": 1,
             "job_ids": [
-                7,
-                1,
-                2
+                4,
+                7
             ],
-            "delivery_duration": 2219,
-            "load": 4
+            "delivery_duration": 1397,
+            "load": 3
         },
         {
             "vehicle_id": 2,
@@ -20,13 +19,14 @@
         {
             "vehicle_id": 3,
             "job_ids": [
-                4,
+                1,
+                2,
                 5,
                 6,
                 3
             ],
-            "delivery_duration": 2596,
-            "load": 5
+            "delivery_duration": 2750,
+            "load": 6
         }
     ]
 }
