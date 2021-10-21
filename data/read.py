@@ -1,5 +1,5 @@
 import json
-from data.config import FILE_PATH, FILE_NAME
+from data.paths import FILE_PATH, FILE_NAME
 from data.model import Data, Vehicle, Job
 
 

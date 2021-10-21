@@ -141,4 +141,6 @@ def local_search(data, solution):
         solution.update_duration()
         improved |= solution.total_delivery_duration < total_delivery_duration
     solution.update_duration()
+    print('Total delivery duration after local search: {0}'
+          .format(solution.total_delivery_duration))
     return solution
