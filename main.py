@@ -6,13 +6,13 @@ from local_search import *
 
 if __name__ == "__main__":
 
-    # starting algorithm
+    # start of algorithm
     start_time = time.time()
 
     # reading data
     data = read.data
 
-    # initial solution
+    # generate initial solution
     solution = Solution('Instant Delivery')
     solution = generate_initial_solution(data, solution)
 
@@ -22,6 +22,6 @@ if __name__ == "__main__":
     # export solution
     solution.export('output.json')
 
-    # algorithm completed
+    # end of algorithm
     print("{0} solution prepared in {1:.3f} seconds.".format(
           solution.name, (time.time() - start_time)))

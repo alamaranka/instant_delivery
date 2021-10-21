@@ -38,6 +38,6 @@ def generate_initial_solution(data, solution):
     for route in solution.routes:
         route.update_duration(data)
     solution.update_duration()
-    print('Total delivery duration of the initial solution: {0}'
+    print('Total delivery duration of the initial solution: {0} seconds.'
           .format(solution.total_delivery_duration))
     return solution

@@ -1,6 +1,7 @@
-from helpers import *
 import pandas as pd
 import json
+import enum
+from helpers import *
 
 
 class Data:
@@ -70,3 +71,9 @@ class Solution:
         to_json = json.dumps(self, default=lambda o: o.__dict__)
         with open(path, 'w', encoding='utf-8') as f:
             json.dump(json.loads(to_json), f, ensure_ascii=False, indent=4)
+
+
+class OperatorType(enum.Enum):
+    TwoOpt = 0,
+    Exchange = 1,
+    Relocate = 2
