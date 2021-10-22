@@ -5,7 +5,7 @@ This is a solution to the algorithm challenge of instant delivery company.
 - Since there are no time windows provided in the input data,
   service times of jobs become irrelevant for the routes, thus ignored.
 
-- After generating a initial solution by assigning jobs to 
+- After generating an initial solution by assigning jobs to 
   their closest vehicle, route delivery durations are
   improved using local search operators.
   
