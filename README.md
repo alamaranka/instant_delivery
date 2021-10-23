@@ -16,5 +16,4 @@ This is a solution to the algorithm challenge of instant delivery company.
 
 - Please see output.json for the results.
 
-Ali Pala
-alipala@buffalo.edu
+Ali Pala, alipala@buffalo.edu

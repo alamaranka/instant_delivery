@@ -63,7 +63,6 @@ def switch(data, routes, operator_type):
                             route1_copy = route1.copy()
                             route2_copy = route2.copy()
                             # remove job from its current route
-                            job1_index = route1_copy.job_ids.index(job1.id)
                             route1_copy.job_ids.remove(job1.id)
                             route1_copy.load -= job1.delivery
                             # prepare new routes
@@ -114,7 +113,6 @@ def local_search(data, solution):
         apply_switch(data, solution.routes, OperatorType.Relocate)
         solution.update_duration()
         improved |= solution.total_delivery_duration < total_delivery_duration
-    solution.update_duration()
     print('Total delivery duration after local search: {0} seconds.'
           .format(solution.total_delivery_duration))
     return solution
